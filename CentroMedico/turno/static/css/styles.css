@@ -1,0 +1,15 @@
+.text-home {
+    color: #fff;
+    text-shadow: 3px 3px 10px #000;
+}
+
+.imagen-home {
+    object-fit: cover;
+    opacity: .6;
+    z-index: -1;
+}
+
+.h1-home {
+    font-size: 5em;
+}
+

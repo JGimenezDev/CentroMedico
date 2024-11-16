@@ -1,0 +1,60 @@
+{% extends 'turno/base.html' %}
+
+
+{% block title %}
+    Paciente - Editar
+{% endblock title %}
+
+
+{% block content %}
+
+<h1 class="fs-1 text-center text-secondary mt-3 mb-5">Editar Paciente</h1>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <form method="post" class="col-5 row border border-primary rounded-4 p-4">{% csrf_token %}
+            
+            <div class="col-6">
+                <label>Apellidos
+                    {{form.apellido}}
+                </label>
+            </div>
+
+            <div class="col-6">
+                <p><label>Nombres
+                    {{form.nombre}}
+                </label></p>
+            </div>
+
+            <div class="col-6">
+                <p><label>D.N.I.
+                    {{form.dni}}
+                </label></p>
+            </div>
+
+            <div class="col-6">
+                <p><label>Historia Clínica
+                    {{form.h_clinica}}
+                </label></p>
+            </div>
+
+            <div class="col-6">
+                <p><label>Edad
+                    {{form.edad}}
+                </label></p>
+            </div>
+
+            <div class="col-6">
+                <label>Sexo
+                    {{form.sexo}}
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-sm btn-success form-control mt-3">Modificar</button>
+            <a href="{% url 'turno:detalle_paciente' paciente.id %}" class="btn btn-sm btn-outline-primary form-control mt-2">Volver</a>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
+

@@ -1,0 +1,45 @@
+{% extends 'turno/base.html' %}
+
+
+{% block title %}
+    Paciente - Nuevo
+{% endblock title %}
+
+
+{% block content %}
+    
+<h1 class="fs-1 text-center text-secondary mt-3 mb-5">Nuevo Paciente</h1>
+
+<div class="row p-2 justify-content-center">
+    <form method="post" class="col-5">{% csrf_token %}
+        
+        <!-- ------------ Campos ------------  -->
+        <div class="row">
+            <div class="col-12 mb-4">Nombres {{form.nombre}}</div>
+
+            <div class="col-12 mb-4">Apellidos {{form.apellido}}</div>
+
+            <div class="col-6 mb-4">D.N.I. {{form.dni}}</div>
+
+            <div class="col-6 mb-4">Edad {{form.edad}}</div>
+
+            <div class="col-6 mb-4">Historia Clínica {{form.h_clinica}}</div>
+
+            <div class="col-6 mb-4">Sexo {{form.sexo}}</div>
+
+        </div>
+
+        <!-- ------------ Botones ------------- -->
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-sm btn-outline-success mt-2 form-control" type="submit">Agregar</button>
+            </div>
+            
+            <div class="col">
+                <a href="{% url 'turno:nuevo_turno' %}" class="btn btn-sm btn-outline-primary mt-2 form-control">Limpiar</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

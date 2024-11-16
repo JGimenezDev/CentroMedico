@@ -1,0 +1,26 @@
+{% extends 'turno/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Turnos
+{% endblock title %}
+
+
+{% block content %}
+    
+<header>
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'img/img_home.jpg' %}" class="d-block w-100 imagen-home" height="500px">
+                <div class="carousel-caption d-none d-md-block text-home">
+                    <h1 class="h1-home">Mi Centro Médico</h1>
+                    <h5>Gestione aquí los turnos de su centro médico.</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% endblock content %}

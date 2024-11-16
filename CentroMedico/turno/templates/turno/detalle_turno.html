@@ -1,0 +1,37 @@
+{% extends 'turno/base.html' %}
+
+
+{% block title %}
+    Turno - Detalle
+{% endblock title %}
+
+
+{% block content %}
+
+<h1 class="fs-1 text-center text-secondary mt-3 mb-5">Detalle de Paciente</h1>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-3">
+    
+            <!-- ------------ Tarjeta de informacion del paciente -------------  -->
+            <div class="card" style="width: 100%;">
+                <!-- <img src="..." class="card-img-top" width="150px" height="150px"> -->
+                    <div class="card-header text-center">
+                        <h3 class="card-title">{{ turno.paciente }}</h3>
+                    </div>
+                <div class="card-body text-center">
+                    <p class="card-text">Fecha: <em>{{turno.fecha|date:'d M Y'}}</em></p>
+                    <p class="card-text">Hora: <em>{{turno.hora}}</em></p>
+                    <p class="card-text">Especialidad: <em>{{turno.especialidad}}</em></p>
+                    <a href="{% url 'turno:editar_turno' turno.id %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'turno:eliminar_turno' turno.id %}" class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+    
+{% endblock content %}
+

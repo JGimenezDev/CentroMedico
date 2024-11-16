@@ -1,0 +1,11 @@
+{% extends 'turno/base.html' %}
+
+
+{% block title %}
+    Turnos
+{% endblock title %}
+
+
+{% block content %}
+
+{% endblock content %}
