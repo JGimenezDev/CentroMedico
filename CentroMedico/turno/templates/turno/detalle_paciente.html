@@ -12,10 +12,12 @@
 
 <div class="container-fluid">
     <div class="row justify-content-evenly">
-        <div class="col-4 row justify-content-center">
+
+        <!-- ----------- Datos del paciente ------------  -->
+        <div class="col-10 col-md-4 row justify-content-center mb-5">
     
             <!-- ------------ Tarjeta de informacion del paciente -------------  -->
-            <div class="card " style="width: 300px;">
+            <div class="card" style="width: 300px;">
                 <!-- <img src="..." class="card-img-top" width="150px" height="150px"> -->
                     <div class="card-header text-center">
                         <h3 class="card-title">{{ paciente.apellido }} {{ paciente.nombre }}</h3>
@@ -31,11 +33,11 @@
             </div>
         </div>
         
-    
-        <div class="col-4 row justify-content-center p-3 border border-primary rounded-4">
+        <!-- ------------- Turnos del paciente -------------  -->
+        <div class="col-9 col-md-4 row justify-content-center p-3 border border-primary rounded-4 mb-5">
     
             <!-- ------------ Formulario para seleccionar turnos -------------  -->
-            <form method="get" class="col-12 text-center">
+            <form action="{% url 'turno:detalle_paciente' paciente.id %}#turnos_pac" method="get" class="col-12 text-center">
                 <label for="turnos" class="form-label">
                     <select name="turnos" id="turnos" class="form-control form-control-sm">
                         <option value="">Seleccionar</option>
@@ -44,13 +46,15 @@
                     </select>
                 </label>
                 <br>
-                <button type="submit" class="btn btn-sm btn-primary">Ver Turnos del paciente</button>
+                <button type="submit" class="btn btn-sm btn-outline-primary">Ver Turnos del paciente</button>
             </form>
     
             <!-- ---------- Turnos del paciente -----------  -->
-            <div class="col-12 text-center">
+            <div class="col-12 text-center mt-3" id="turnos_pac">
                     {% for t in mostrar_turnos %}
-                        <p>{{t.fecha|date:'d M Y'}} a las {{t.hora}}hs - {{t.especialidad}}</p>
+                        <p>
+                            <a href="{% url 'turno:detalle_turno' t.id %}" class="text-decoration-none text-success">{{t.fecha|date:'d M'}}</a>  - {{t.especialidad}}
+                        </p>
                     {% empty %}
                         <p>Sin turnos para mostrar</p>
                     {% endfor %}

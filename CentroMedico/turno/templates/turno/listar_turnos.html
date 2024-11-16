@@ -14,7 +14,7 @@
 
     <div class="row justify-content-center">
         
-        <div class="col-3 text-center p-2">
+        <div class="col-12 col-md-3 text-center p-2">
             <div class="row p-2">
                 <a href="{% url 'turno:nuevo_turno' %}" class="btn btn-sm btn-success form-control mb-3">
                     Nuevo Turno
@@ -24,34 +24,35 @@
             <!-- ----------- Filtros ------------ -->
             <div class="row p-2">
                 <h3>Filtros</h3>
-                <form method="get">
-                    <p><label for="esp">Especialidad
+                <form action="{% url 'turno:listar_turnos' %}#datos" method="get">
+                    <label for="esp" class="col-10">Especialidad
                         <select name="esp" id="esp" class="form-control form-control-sm">
                             <option value="">---</option>
                             {% for e in especialidades %}
                                 <option value="{{ e.id }}" {% if request.GET.esp == e.id|stringformat:"s" %}selected{% endif %}>{{ e.nombre }}</option>
                             {% endfor %}
                         </select>
-                    </label></p>
+                    </label>
 
-                    <p><label>Fecha 1
+                    <label class="col-5">Fecha 1
                         <input type="date" name="desde" class="form-control form-control-sm" value="{{ request.GET.desde }}">
-                    </label></p>
+                    </label>
                     
-                    <p><label>Fecha 2
+                    <label class="col-5">Fecha 2
                         <input type="date" name="hasta" class="form-control form-control-sm" value="{{ request.GET.hasta }}">
-                    </label></p>
+                    </label><br>
                     
-                    <button type="submit" class="btn btn-sm btn-outline-primary mt-2">Filtrar</button>
-                    <a href="{% url 'turno:listar_turnos' %}" class="btn btn-sm btn-outline-primary mt-2">Limpiar</a>
+                    <button type="submit" class="col-5 btn btn-sm btn-outline-primary mt-2">Filtrar</button>
+
+                    <a href="{% url 'turno:listar_turnos' %}#datos" class="col-5 btn btn-sm btn-outline-secondary mt-2">Limpiar</a>
                 </form>
                 
             </div>
         </div>
 
         <!-- ------------- Datos ----------------- -->
-        <div class="col-9 text-center p-3">
-            <table class="table table-striped table-sm">
+        <div class="col-12 col-md-10 text-center p-3">
+            <table class="table table-striped table-sm" id="datos">
                 <thead>
                     <tr>
                         <th scope="col">FECHA</th>

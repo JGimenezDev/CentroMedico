@@ -76,14 +76,11 @@ WSGI_APPLICATION = 'CentroMedico.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'micentro_db',
-        'USER': 'centro_med',
-        'PASSWORD': 'centro_med01',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
@@ -122,7 +119,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICDIRS_FILES = BASE_DIR / 'static'
+STATIC_ROOT = BASE_DIR / 'static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
